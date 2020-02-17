@@ -5,24 +5,26 @@ function onSubmit() {
   const maxCheckout = 3;
 
   const clients = new Array(formClientNumb);
-  const checkouts = new Array(formCheckoutNumb);
+  const checkouts = [];
 
   const client = { id: 0, items: 0 };
   const checkout = { id: 0, velocity: 0 };
   const zupermarket = { clients: clients, checkouts: checkouts };
 
-  for (let i = 0; i < clients.length; i++) {
+  for (let i = 0; i < formClientNumb; i++) {
     let tmpClient = Object.create(client);
     tmpClient.id = i + 1;
     tmpClient.items = Math.round(Math.random() * maxItemPerClient + 1);
     clients[i] = tmpClient;
   }
-  for (let i = 0; i < checkouts.length; i++) {
+  for (let i = 0; i < formCheckoutNumb; i++) {
     let tmpCheckout = Object.create(checkout);
     tmpCheckout.id = i + 1;
     tmpCheckout.velocity = Math.round(Math.random() * maxCheckout + 1);
     checkouts[i] = tmpCheckout;
   }
+  console.log("clients:",clients);
+  console.log("checkouts:",checkouts);
 
   const data = JSON.stringify(zupermarket);
 
