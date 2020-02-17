@@ -9,6 +9,7 @@ function onSubmit() {
 
   const client = { id: 0, items: 0 };
   const checkout = { id: 0, velocity: 0 };
+  const zupermarket = { clients: clients, checkouts: checkouts };
 
   for (let i = 0; i < clients.length; i++) {
     let tmpClient = Object.create(client);
@@ -23,10 +24,9 @@ function onSubmit() {
     checkouts[i] = tmpCheckout;
   }
 
-  const zupermarket = [clients, checkouts];
   const data = JSON.stringify(zupermarket);
 
-  console.log();
+  console.log(data);
 
   ajaxPost("http://localhost:8082/api/shop", data);
 }
@@ -39,7 +39,7 @@ function ajaxPost(url, data) {
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
       console.warn("data sent");
     } else {
-      console.warn("!!! data don't sent !!!");
+      console.warn("!!! data not sent !!!");
     }
   };
   req.send(data);
