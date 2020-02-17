@@ -1,6 +1,6 @@
 function onSubmit() {
-  let formClientNumb = document.forms["shop"].elements["client"].value;
-  let formCheckoutNumb = document.forms["shop"].elements["checkout"].value;
+  const formClientNumb = document.forms["shop"].elements["client"].value;
+  const formCheckoutNumb = document.forms["shop"].elements["checkout"].value;
   const maxItemPerClient = 10;
   const maxCheckout = 3;
 
@@ -32,7 +32,7 @@ function onSubmit() {
 }
 
 function ajaxPost(url, data) {
-  var req = new XMLHttpRequest();
+  const req = new XMLHttpRequest();
   req.open("POST", url);
   req.setRequestHeader("Content-Type", "application/json");
   req.onreadystatechange = function() {
