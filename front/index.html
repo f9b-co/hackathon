@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+<title> Hackaton</title>
+ <div>
+ <form name="shop">
+
+    <label name="client"  onSubmit="return validateForm()" method="post">Client :</label>
+    <input type="number" id="client" name="client" min="1" max="100" required>
+
+    <label name="checkout" onSubmit="return validateForm()" method="post">Checkout :</label>
+    <input type="number" id="checkout" name="checkout" min="1" max="20" required>
+ </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+  </body>
+</html>
+<script src="script/main.js"></script>
