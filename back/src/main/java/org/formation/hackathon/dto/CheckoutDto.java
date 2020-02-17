@@ -1,7 +1,4 @@
-package dto;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+package org.formation.hackathon.dto;
 
 public class CheckoutDto {
 
@@ -17,4 +14,11 @@ public class CheckoutDto {
         return velocity;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setVelocity(int velocity) {
+        this.velocity = velocity;
+    }
 }
