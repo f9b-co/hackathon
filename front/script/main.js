@@ -7,12 +7,20 @@ function onSubmit() {
   const clients = new Array(formClientNumb);
   const checkouts = new Array(formCheckoutNumb);
 
+  const client = { id: 0, items: 0 };
+  const checkout = { id: 0, velocity: 0 };
+
   for (let i = 0; i < clients.length; i++) {
-    clients[i] =
-      "{" + i + 1 + ", " + Math.random() * maxItemPerClient + 1 + "}";
+    let tmpClient = Object.create(client);
+    tmpClient.id = i + 1;
+    tmpClient.items = Math.round(Math.random() * maxItemPerClient + 1);
+    clients[i] = tmpClient;
   }
   for (let i = 0; i < checkouts.length; i++) {
-    checkouts[i] = "{" + i + 1 + ", " + Math.random() * maxCheckout + 1 + "}";
+    let tmpCheckout = Object.create(checkout);
+    tmpCheckout.id = i + 1;
+    tmpCheckout.velocity = Math.round(Math.random() * maxCheckout + 1);
+    checkouts[i] = tmpCheckout;
   }
 
   const zupermarket = [clients, checkouts];
