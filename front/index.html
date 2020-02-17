@@ -6,16 +6,16 @@
   <body>
 <title> Hackaton</title>
  <div>
- <form name="shop">
+ <form name="shop" onsubmit="event.preventDefault(); onSubmit();" method="post">
 
-    <label name="client"  onSubmit="return validateForm()" method="post">Client :</label>
+    <label name="client"  >Client :</label>
     <input type="number" id="client" name="client" min="1" max="100" required>
 
-    <label name="checkout" onSubmit="return validateForm()" method="post">Checkout :</label>
+    <label name="checkout">Checkout :</label>
     <input type="number" id="checkout" name="checkout" min="1" max="20" required>
  </div>
     <div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Envoyer">
     </div>
     </form>
   </body>
