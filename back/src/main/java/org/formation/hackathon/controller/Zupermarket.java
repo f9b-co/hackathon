@@ -23,10 +23,10 @@ public class Zupermarket {
         CheckoutDto[] checkouts = zupermarketDto.getCheckouts();
 
         for(ClientDto client : clients) {
-            System.out.println("Client n°"+client.getId());
+            System.out.println("Client n°"+client.getId()+", "+client.getItems()+" items.");
         }
         for(CheckoutDto checkout : checkouts){
-            System.out.println("Caisse n°"+checkout.getId());
+            System.out.println("Caisse n°"+checkout.getId()+", "+checkout.getVelocity()+" items/min.");
         }
     }
 
