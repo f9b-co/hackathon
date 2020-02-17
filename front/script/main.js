@@ -28,7 +28,7 @@ function onSubmit() {
 
   console.log();
 
-  ajaxPost("http://localhost:8080/api/shop", data);
+  ajaxPost("http://localhost:8082/api/shop", data);
 }
 
 function ajaxPost(url, data) {
