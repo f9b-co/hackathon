@@ -4,11 +4,20 @@ public class ClientDto {
     private int id;
     private int items;
 
-    public int getId(){
+    public int getId() {
         return id;
-    };
-    public int getItems(){
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getItems() {
         return items;
+    }
+
+    public void setItems(int items) {
+        this.items = items;
     }
 
     @Override
@@ -17,13 +26,5 @@ public class ClientDto {
                 "id=" + id +
                 ", items=" + items +
                 '}';
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setItems(int items) {
-        this.items = items;
     }
 }
