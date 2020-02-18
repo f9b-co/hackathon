@@ -14,7 +14,9 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     }
 
     public void setLastEmptyIndex(int lastEmptyIndex) {
-        this.lastEmptyIndex = lastEmptyIndex;
+        if (lastEmptyIndex >= 0) {
+            this.lastEmptyIndex = lastEmptyIndex;
+        }
     }
 
     public int getDoneItems() {
