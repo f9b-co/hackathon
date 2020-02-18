@@ -8,6 +8,7 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     private int velocity;
     private int capacity;
     private int doneItems;
+    private int lastEmptyIndex;
 
     public void setDoneItems(int doneItems) {
         this.doneItems = doneItems;
@@ -28,21 +29,6 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     }
 
     private ClientDto[] queue;
-
-    @Override
-    public String toString() {
-        return "CheckoutDto{" +
-                "id=" + id +
-                ", velocity=" + velocity +
-                ", capacity=" + capacity +
-                ", doneItems=" + doneItems +
-                ", queue=" + Arrays.toString(queue) +
-                ", lastEmptyIndex=" + lastEmptyIndex +
-                '}';
-    }
-
-    private int lastEmptyIndex;
-
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
@@ -78,5 +64,16 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     @Override
     public int compareTo(CheckoutDto checkoutDto) {
         return checkoutDto.getVelocity() - this.velocity;
+    }
+    @Override
+    public String toString() {
+        return "CheckoutDto{" +
+                "id=" + id +
+                ", velocity=" + velocity +
+                ", capacity=" + capacity +
+                ", doneItems=" + doneItems +
+                ", queue=" + Arrays.toString(queue) +
+                ", lastEmptyIndex=" + lastEmptyIndex +
+                '}';
     }
 }
