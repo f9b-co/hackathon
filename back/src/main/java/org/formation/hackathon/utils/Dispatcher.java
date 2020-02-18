@@ -51,11 +51,11 @@ public class Dispatcher {
             double capacity = c.getVelocity()/(double)this.totalVelocity*this.totalItems;
             c.setCapacity((int)capacity);
             c.setLastEmptyIndex(queueLength-1);
-            System.out.println(c);
+            System.out.println(c.toString().replace("null","-"));
         }
         for (int i = 0; i < clients.length; i++) {
             ClientDto cl = clients[i];
-            double maxCapacity = 0.0;
+            double maxCapacity = -1000.0;
             int bestCheckout = 0;
             for (int j = 0; j < checkouts.length && !(cl.isQueued()); j++) {
                 CheckoutDto c = checkouts[j];
@@ -63,6 +63,7 @@ public class Dispatcher {
                     c.getQueue()[c.getLastEmptyIndex()]=cl;
                     c.setLastEmptyIndex(c.getLastEmptyIndex()-1);
                     c.setCapacity(c.getCapacity()-cl.getItems());
+                    c.setDoneItems(c.getDoneItems()+cl.getItems());
                     cl.setQueued(true);
                     //System.out.println(c);
                 }
@@ -79,13 +80,14 @@ public class Dispatcher {
                 c.getQueue()[c.getLastEmptyIndex()]=cl;
                 c.setLastEmptyIndex(c.getLastEmptyIndex()-1);
                 c.setCapacity(c.getCapacity()-cl.getItems());
+                c.setDoneItems(c.getDoneItems()+cl.getItems());
                 cl.setQueued(true);
                 //System.out.println(c);
             }
         }
         System.out.println("-----------------------------");
         for (CheckoutDto c : checkouts) {
-            System.out.println(c);
+            System.out.println(c.toString().replace("null","-"));
         }
     }
 }
