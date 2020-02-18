@@ -11,6 +11,14 @@ public class ClientDto {
         return items;
     }
 
+    @Override
+    public String toString() {
+        return "ClientDto{" +
+                "id=" + id +
+                ", items=" + items +
+                '}';
+    }
+
     public void setId(int id) {
         this.id = id;
     }

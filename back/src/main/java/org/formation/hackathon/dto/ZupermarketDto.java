@@ -24,4 +24,5 @@ public class ZupermarketDto {
     public void setCheckouts(CheckoutDto[] checkouts) {
         this.checkouts = checkouts;
     }
+
 }
