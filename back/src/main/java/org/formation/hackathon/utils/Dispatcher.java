@@ -60,12 +60,7 @@ public class Dispatcher {
             for (int j = 0; j < checkouts.length && !(cl.isQueued()); j++) {
                 CheckoutDto c = checkouts[j];
                 if(c.getCapacity()>=cl.getItems()) {
-                    c.getQueue()[c.getLastEmptyIndex()]=cl;
-                    c.setLastEmptyIndex(c.getLastEmptyIndex()-1);
-                    c.setCapacity(c.getCapacity()-cl.getItems());
-                    c.setDoneItems(c.getDoneItems()+cl.getItems());
-                    cl.setQueued(true);
-                    //System.out.println(c);
+                    dipatchOne(cl, c);
                 }
             }
             if (!(cl.isQueued())) {
@@ -77,18 +72,21 @@ public class Dispatcher {
                     }
                 }
                 CheckoutDto c = checkouts[bestCheckout];
-                c.getQueue()[c.getLastEmptyIndex()]=cl;
-                c.setLastEmptyIndex(c.getLastEmptyIndex()-1);
-                c.setCapacity(c.getCapacity()-cl.getItems());
-                c.setDoneItems(c.getDoneItems()+cl.getItems());
-                cl.setQueued(true);
-                //System.out.println(c);
+                dipatchOne(cl, c);
             }
         }
         System.out.println("-----------------------------");
         for (CheckoutDto c : checkouts) {
             System.out.println(c.toString().replace("null","-"));
         }
+    }
+    private void dipatchOne(ClientDto cl, CheckoutDto c) {
+        c.getQueue()[c.getLastEmptyIndex()] = cl;
+        c.setLastEmptyIndex(c.getLastEmptyIndex() - 1);
+        c.setCapacity(c.getCapacity() - cl.getItems());
+        c.setDoneItems(c.getDoneItems() + cl.getItems());
+        cl.setQueued(true);
+        //System.out.println(c);
     }
 }
 
