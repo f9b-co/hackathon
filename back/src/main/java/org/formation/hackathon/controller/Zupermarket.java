@@ -11,26 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class Zupermarket {
     @PostMapping("/shop")
-    public void populateQueue(@Valid @RequestBody ZupermarketDto zupermarketDto )
-    {
+    public void populateQueue(@Valid @RequestBody ZupermarketDto zupermarketDto) {
         ClientDto[] clients = zupermarketDto.getClients();
         CheckoutDto[] checkouts = zupermarketDto.getCheckouts();
 
         Dispatcher dispatcher = new Dispatcher(clients, checkouts);
         dispatcher.sortCheckoutByVelocity();
         dispatcher.dispatch();
-        for(ClientDto client : clients) {
-            System.out.println("Client n°"+client.getId()+", "+client.getItems()+" items.");
+        for (ClientDto client : clients) {
+            System.out.println("Client n°" + client.getId() + ", " + client.getItems() + " items.");
         }
-        for(CheckoutDto checkout : checkouts){
-            System.out.println("Caisse n°"+checkout.getId()+", "+checkout.getVelocity()+" items/min.");
+        for (CheckoutDto checkout : checkouts) {
+            System.out.println("Caisse n°" + checkout.getId() + ", " + checkout.getVelocity() + " items/min.");
         }
     }
 
