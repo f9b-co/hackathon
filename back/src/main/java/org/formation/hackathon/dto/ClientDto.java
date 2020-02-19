@@ -23,9 +23,6 @@ public class ClientDto {
     public boolean isQueued() { return queued; }
     public void setQueued(boolean queued) { this.queued = queued; }
 
-    public void setItems(int items) {
-        this.items = items;
-    }
 
     @Override
     public String toString() {

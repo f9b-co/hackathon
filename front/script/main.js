@@ -1,8 +1,8 @@
 function onSubmit() {
   const formClientNumb = document.forms["shop"].elements["client"].value;
   const formCheckoutNumb = document.forms["shop"].elements["checkout"].value;
-  const maxItemPerClient = 100;
-  const maxCheckoutVelocity = 40;
+  const maxItemPerClient = 10;
+  const maxCheckoutVelocity = 4;
 
   const clients = new Array(parseInt(formClientNumb));
   const checkouts = new Array(parseInt(formCheckoutNumb));
