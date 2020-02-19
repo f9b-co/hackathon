@@ -9,18 +9,23 @@ public class ClientDto {
         //
     }
 
-    public int getId(){
+    public int getId() {
         return id;
-    };
+    }
     public void setId(int id) {
         this.id = id;
     }
     public int getItems(){
+
         return items;
     }
     public void setItems(int items) { this.items = items; }
     public boolean isQueued() { return queued; }
     public void setQueued(boolean queued) { this.queued = queued; }
+
+    public void setItems(int items) {
+        this.items = items;
+    }
 
     @Override
     public String toString() {

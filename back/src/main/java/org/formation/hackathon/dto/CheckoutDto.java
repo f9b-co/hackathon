@@ -2,7 +2,7 @@ package org.formation.hackathon.dto;
 
 import java.util.Arrays;
 
-public class CheckoutDto implements Comparable<CheckoutDto>{
+public class CheckoutDto implements Comparable<CheckoutDto> {
 
     private int id;
     private int velocity;
@@ -10,10 +10,6 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     private int capacity;
     private int doneItems;
     private int lastEmptyIndex;
-
-    public CheckoutDto() {
-        //
-    }
 
     public int getId() {
         return id;
@@ -44,7 +40,7 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     }
     public void setDoneItems(int doneItems) {
         this.doneItems = doneItems;
-    }
+
     public int getLastEmptyIndex() {
         return lastEmptyIndex;
     }
@@ -58,6 +54,7 @@ public class CheckoutDto implements Comparable<CheckoutDto>{
     public int compareTo(CheckoutDto checkoutDto) {
         return checkoutDto.getVelocity() - this.velocity;
     }
+      
     @Override
     public String toString() {
         return "CheckoutDto{" +
