@@ -23,6 +23,7 @@ public class Dispatcher {
     public int getQueueLength() {
         return queueLength;
     }
+
     public void setQueueLength(int queueLength) {
         this.queueLength = queueLength;
     }
@@ -30,6 +31,7 @@ public class Dispatcher {
     private int calcTotalItems(ClientDto[] clients) {
         int result = 0;
         for (ClientDto c : clients) {
+
             result += c.getItems();
         }
         return result;
@@ -70,6 +72,7 @@ public class Dispatcher {
                         maxCapacity = c.getCapacity();
                         bestCheckout = k;
                     }
+
                 }
                 CheckoutDto c = checkouts[bestCheckout];
                 dipatchOne(cl, c);
